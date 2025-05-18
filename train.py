@@ -2,8 +2,11 @@ import os
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
 
 from transformers import (
-    AutoTokenizer, AutoModelForCausalLM,
-    TrainingArguments, DataCollatorForLanguageModeling, Trainer
+    AutoTokenizer,
+    AutoModelForCausalLM,
+    TrainingArguments,
+    DataCollatorForLanguageModeling,
+    Trainer
 )
 from datasets import load_dataset
 import torch, bitsandbytes as bnb
@@ -16,53 +19,58 @@ tokenizer.pad_token = tokenizer.eos_token
 
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
-    torch_dtype=torch.float32,   # full precision keeps things stable
+    torch_dtype=torch.float32,
     use_cache=False
 )
-model.gradient_checkpointing_enable()     # save VRAM
+model.gradient_checkpointing_enable()
 
 # ── 2.  Dataset ─────────────────────────────────────────────────────
-ds = load_dataset("json", data_files="galactus_dataset.json")
+dataset = load_dataset("json", data_files="galactus_dataset.json")
 
-def tok(batch):
+def tokenize(batch):
     merged = [
         f"{i} {j} {k}"
         for i, j, k in zip(batch["instruction"], batch["input"], batch["output"])
     ]
-    return tokenizer(merged, truncation=True, padding="max_length", max_length=256)
+    return tokenizer(
+        merged,
+        truncation=True,
+        padding="max_length",
+        max_length=256
+    )
 
-tok_ds = ds["train"].map(tok, batched=True)
+tokenised = dataset["train"].map(tokenize, batched=True)
 
 # ── 3.  Training arguments  ─────────────────────────────────────────
 train_args = TrainingArguments(
     output_dir="./galactus2-model",
     per_device_train_batch_size=1,
-    gradient_accumulation_steps=2,   # effective batch = 2
+    gradient_accumulation_steps=2,
     num_train_epochs=3,
-    fp16=False,                      # avoid AMP scaler issues
-    max_grad_norm=0.0,               # disables grad-clipping scaler
+
+    fp16=False,                # avoid AMP issues
+    max_grad_norm=0.0,         # disables grad-clipping scaler
     logging_steps=10,
 
-    save_strategy="no",              # 🚫 no mid-run checkpoints
-    save_total_limit=1,
-    save_optimizer_state=False,      # 🚫 skip huge optimiser states
+    save_strategy="no",        # 🚫 no automatic checkpoints
+    save_total_limit=1,        # keep at most one (if strategy changes)
 
     overwrite_output_dir=True,
     report_to="none"
 )
 
-# ── 4.  Low-VRAM optimiser  ────────────────────────────────────────
+# ── 4.  Low-VRAM optimiser  ─────────────────────────────────────────
 optimizer = bnb.optim.PagedAdamW32bit(model.parameters(), lr=5e-5)
 
-# ── 5.  Trainer  ───────────────────────────────────────────────────
+# ── 5.  Trainer  ────────────────────────────────────────────────────
 trainer = Trainer(
     model=model,
     args=train_args,
-    train_dataset=tok_ds,
+    train_dataset=tokenised,
     data_collator=DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False),
-    optimizers=(optimizer, None)
+    optimizers=(optimizer, None)      # custom optimiser, no scheduler
 )
 
 # ── 6.  Train & manual save  ───────────────────────────────────────
 trainer.train()
-trainer.save_model("./galactus2-model")   # ← final tiny checkpoint only
+trainer.save_model("./galactus2-model")   # final lightweight checkpoint
