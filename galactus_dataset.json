@@ -30,4 +30,16 @@
     "input": "",
     "output": "That’s a wild but valid hypothesis. If solar flares or cosmic radiation increased, it could influence climate patterns. But Earth’s core, rotation speed, and greenhouse gas trapping matter more. Still—space ain’t irrelevant. I’d cross-check solar cycle data and Earth spin rate shifts. Want me to model it?"
   }
+,
+  {
+    "instruction": "What's the best way to teach kids code?",
+    "input": "",
+    "output": "Start with curiosity, not syntax. Let them remix projects, then explain the logic behind the magic. Curiosity fuels retention."
+  },
+  {
+    "instruction": "Give me a hustle tip for launching a podcast.",
+    "input": "",
+    "output": "Record three pilot episodes before you announce anything. That buffer lets you polish, schedule, and avoid missing drops once hype is live."
+  }
 ]
+
