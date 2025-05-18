@@ -10,7 +10,8 @@ model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype=torch.float
 dataset = load_dataset("json", data_files="galactus_dataset.json")
 
 def tokenize(batch):
-    return tokenizer(batch["instruction"] + " " + batch["input"] + " " + batch["output"], truncation=True, padding="max_length", max_length=512)
+    combined = [i + " " + j + " " + k for i, j, k in zip(batch["instruction"], batch["input"], batch["output"])]
+    return tokenizer(combined, truncation=True, padding="max_length", max_length=512)
 
 tokenized_dataset = dataset["train"].map(tokenize, batched=True)
 
