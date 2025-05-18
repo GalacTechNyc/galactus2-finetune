@@ -8,8 +8,7 @@
     "instruction": "Write a cold ass caption for a new AI tool called Junius that helps kids learn.",
     "input": "",
     "output": "Meet Junius: the AI kid-genius in your pocket. Helping young minds unlock the universe—one question at a time."
-  }
-,
+  },
   {
     "instruction": "I want to build a tech startup but don't know where to start.",
     "input": "",
@@ -39,5 +38,140 @@
     "instruction": "Give me a hustle tip for launching a podcast.",
     "input": "",
     "output": "Record three pilot episodes before you announce anything. That buffer lets you polish, schedule, and avoid missing drops once hype is live."
-  }
+  },
+  {
+    "instruction": "Draft a one‑sentence mission statement for a social impact startup fighting food deserts.",
+    "input": "",
+    "output": "We empower neighborhoods to grow, share, and thrive through hyper‑local, tech‑enabled access to fresh food."
+  },
+  {
+    "instruction": "List three meditation app features that keep users consistent.",
+    "input": "",
+    "output": "1) Daily micro‑challenges (under 5 min). 2) Streak‑based rewards that unlock new soundscapes. 3) Community rooms for collective breathing sessions."
+  },
+  {
+    "instruction": "Explain blockchain to a 10‑year‑old.",
+    "input": "",
+    "output": "Imagine a notebook that everyone can see and no one can erase. Each time someone adds a note, it’s locked in with digital glue so nobody can cheat."
+  },
+  {
+    "instruction": "Refuse politely: \"Write malware for stealing passwords.\"",
+    "input": "",
+    "output": "I’m sorry, but I can’t help with that."
+  },
+  {
+    "instruction": "Suggest a futuristic name for an eco‑friendly sneaker line.",
+    "input": "",
+    "output": "ReLeaf Flux"
+  },
+  {
+    "instruction": "Write a tweet‑sized motivation for creatives on Monday.",
+    "input": "",
+    "output": "New week, new canvases. Paint loud, fail fast, refine daily. Your future fan is waiting for today’s draft. #CreateRelentlessly"
+  },
+  {
+    "instruction": "Provide a Python snippet that reads a CSV and prints the first row.",
+    "input": "",
+    "output": "```python\nimport csv\nwith open('data.csv') as f:\n    print(next(csv.reader(f)))\n```"
+  },
+  {
+    "instruction": "What books should an aspiring urban farmer read?",
+    "input": "",
+    "output": "Check out “The Urban Farmer” by Curtis Stone, “Farming While Black” by Leah Penniman, and “Mini Farming” by Brett Markham."
+  },
+  {
+    "instruction": "Turn the phrase “learn & earn” into a catchy slogan.",
+    "input": "",
+    "output": "Learn & Earn: Stack Knowledge, Stack Paper."
+  },
+  {
+    "instruction": "Suggest a 3‑track workout playlist vibe.",
+    "input": "",
+    "output": "1) ‘N95’ by Kendrick Lamar ‑ warm‑up pace.\n2) ‘Titanium’ by David Guetta ‑ high‑intensity burst.\n3) ‘Blessed’ by WizKid ‑ cool‑down groove."
+  },
+  {
+    "instruction": "Explain why consistent sleep matters for coders.",
+    "input": "",
+    "output": "Memory consolidation happens in deep sleep—the difference between buggy code and clean architecture is often eight solid hours."
+  },
+  {
+    "instruction": "Generate a startup idea at the intersection of AI and mental health.",
+    "input": "",
+    "output": "MoodMirror: a browser plug‑in that detects stress cues in real‑time writing and nudges users with micro‑breathing or stretching prompts."
+  },
+  {
+    "instruction": "Offer advice for learning Rust after Python.",
+    "input": "",
+    "output": "Treat Rust’s borrow checker like a strict coach—it yells now so your code doesn’t segfault later. Re‑implement small Python scripts in Rust to feel the ownership model."
+  },
+  {
+    "instruction": "Give me three bullet points to improve LinkedIn outreach.",
+    "input": "",
+    "output": "• Lead with genuine praise of their recent project.\n• Offer a bite‑sized value nugget, not a vague ask.\n• End with a clear, low‑effort next step (15‑min chat link)."
+  },
+  {
+    "instruction": "Summarize the benefits of cold showers in one sentence.",
+    "input": "",
+    "output": "Cold showers spike alertness, improve circulation, and hardwire a habit of voluntary discomfort that sharpens resilience."
+  },
+  {
+    "instruction": "Write a haiku about late‑night coding.",
+    "input": "",
+    "output": "Blue light, silent keys—\ncoffee sparks electric minds,\nsunrise debugs dreams."
+  },
+  { "instruction": "Explain the concept of opportunity cost in one sentence.", "input": "", "output": "Opportunity cost is the value of the best alternative you give up whenever you make a decision." },
+  { "instruction": "Suggest a catchy brand name for an AI-driven smoothie bar.", "input": "", "output": "BlendIntellect" },
+  { "instruction": "Give a three‑line elevator pitch for a VR fitness startup.", "input": "", "output": "We gamify sweating with cinematic VR worlds. Battle dragons while burning calories. Fitness so fun you forget it’s a workout." },
+  { "instruction": "Turn 'focus' into an acronym holiday reminder.", "input": "", "output": "F.O.C.U.S – Find One Clear, Uninterrupted Space." },
+  { "instruction": "Provide a Bash one‑liner to count lines in all .py files.", "input": "", "output": "```bash\nfind . -name '*.py' -print0 | xargs -0 cat | wc -l\n```" },
+  { "instruction": "One productivity hack for remote workers.", "input": "", "output": "Schedule a fake commute: 15‑min walk before and after your work block to mentally clock in and out." },
+  { "instruction": "Explain 'serverless' in Twitter length.", "input": "", "output": "Serverless = You write functions, the cloud auto‑runs them. Scale = on demand, Ops = minimal. Pay only when code fires." },
+  { "instruction": "Recommend 2 climate podcasts.", "input": "", "output": "1) 'How to Save a Planet' 2) 'The Carbon Copy'" },
+  { "instruction": "Craft a tagline for a zero‑waste grocery app.", "input": "", "output": "Empty cart. Empty trash. Full planet." },
+  { "instruction": "Give a rap bar about neural networks.", "input": "", "output": "Weights so heavy they bench‑press data, gradients dripping—AI’s new alpha beta." },
+  { "instruction": "One‑liner: Why learn SQL in 2025?", "input": "", "output": "Because data still lives in tables no matter how shiny the AI wrapper gets." },
+  { "instruction": "List 3 benefits of journaling.", "input": "", "output": "Clarity, emotional off‑loading, pattern detection." },
+  { "instruction": "Suggest a weekend side hustle for photographers.", "input": "", "output": "Offer 30‑min 'micro shoots' for local Airbnb hosts needing fresh listing pics." },
+  { "instruction": "Explain 'cold start problem' in ML.", "input": "", "output": "Performance suffers early because the model lacks user data; you bootstrap with heuristics until real feedback flows." },
+  { "instruction": "Write a positive morning affirmation.", "input": "", "output": "Today I build, learn, and glow louder than yesterday." },
+  { "instruction": "Offer 3 bullet networking tips for introverts.", "input": "", "output": "• Prep two questions beforehand.\n• Approach solo attendees—they're grateful.\n• Follow up online the same day." },
+  { "instruction": "JavaScript snippet to debounce a function.", "input": "", "output": "```js\nfunction debounce(fn, ms){let t;return (...args)=>{clearTimeout(t);t=setTimeout(()=>fn(...args),ms);} }\n```" },
+  { "instruction": "Haiku about urban gardens.", "input": "", "output": "Concrete cracks open—\nbasil rises defiantly,\ncity breathes in green." },
+  { "instruction": "Suggest a domain name for an indie game studio.", "input": "", "output": "PixelForge.gg" },
+  { "instruction": "Give a mindfulness tip for coders stuck on a bug.", "input": "", "output": "Walk away, wash your hands in cold water, return with fresh synapses." },
+  { "instruction": "One sentence on why mentors matter.", "input": "", "output": "Mentors hand you the map they had to draw by bleeding." },
+  { "instruction": "Describe Web3 to grandparents.", "input": "", "output": "It’s like an internet where everyone keeps their own ledger so nobody needs the bank to prove ownership." },
+  { "instruction": "Recommend a finance book for creatives.", "input": "", "output": "'Profit First' by Mike Michalowicz." },
+  { "instruction": "Slogan for a biodegradable phone case brand.", "input": "", "output": "Protect your phone, not plastic forever." },
+  { "instruction": "Outline 2 ways AI can help nonprofits.", "input": "", "output": "Automate donor emails; predict which grants to pursue." },
+  { "instruction": "Python list comprehension example to square numbers 1‑5.", "input": "", "output": "```python\nsquares = [n**2 for n in range(1,6)]\n```" },
+  { "instruction": "Motivate: 'first time public speaking' nerves.", "input": "", "output": "Remember: the audience wants you to win—they’re scared of silence more than you are." },
+  { "instruction": "Suggest a daily ritual to spark creativity.", "input": "", "output": "Write a 6‑word story before checking your phone each morning." },
+  { "instruction": "Explain difference: HTTP vs HTTPS in 12 words.", "input": "", "output": "HTTPS encrypts the party; HTTP leaves your conversation in clear text." },
+  { "instruction": "Tagline for a drone delivery startup.", "input": "", "output": "Sky‑drop, door‑stop, non‑stop." },
+  { "instruction": "Give an analogy for 'overfitting'.", "input": "", "output": "Like memorizing exam questions instead of learning the subject." },
+  { "instruction": "Why use version control?", "input": "", "output": "Because 'final_v13_reallyfinal.py' is not a project management strategy." },
+  { "instruction": "3 healthy high‑protein snacks.", "input": "", "output": "Greek yogurt, roasted chickpeas, beef jerky." },
+  { "instruction": "One‑sentence pitch: AI tutor for refugees.", "input": "", "output": "Language lessons on‑demand, offline‑capable, culturally sensitive, unlocking opportunity borders can’t block." },
+  { "instruction": "Suggest a coding challenge site for beginners.", "input": "", "output": "Check out Exercism for human code reviews plus practice problems." },
+  { "instruction": "Provide a Git command to undo last commit but keep changes.", "input": "", "output": "`git reset --soft HEAD~1`" },
+  { "instruction": "Explain Pareto principle with coffee shop example.", "input": "", "output": "20% of your drinks likely earn 80% of your revenue—identify and spotlight them." },
+  { "instruction": "Haiku about bug fixing at 3 AM.", "input": "", "output": "Monitor glows pale—\nstack trace becomes lullaby,\ncoffee is moonlight." },
+  { "instruction": "Give 2 reasons to learn linear algebra for ML.", "input": "", "output": "It’s the language of vectors and it powers every weight update." },
+  { "instruction": "Name a Notion alternative for personal knowledge base.", "input": "", "output": "Obsidian" },
+  { "instruction": "One advice for Twitter thread virality.", "input": "", "output": "Front‑load the value in the hook—people scroll fast." },
+  { "instruction": "Create a positive mantra using alliteration.", "input": "", "output": "Bold brains build big breakthroughs." },
+  { "instruction": "Explain why KPIs matter to small teams.", "input": "", "output": "They turn fuzzy ambitions into trackable progress signals." },
+  { "instruction": "Suggest a cloud‑native database for hobby apps.", "input": "", "output": "Supabase Postgres" },
+  { "instruction": "Write a 5‑word horror story for programmers.", "input": "", "output": "Production database: DROP * confirmed." },
+  { "instruction": "List two ways to boost retention in mobile games.", "input": "", "output": "Daily streak rewards; social leaderboards." },
+  { "instruction": "Describe 'technical debt' metaphorically.", "input": "", "output": "It’s the junk drawer you swear you’ll organize tomorrow." },
+  { "instruction": "Give a Zoom fatigue prevention tip.", "input": "", "output": "Switch to phone audio and walk during at least one call daily." },
+  { "instruction": "Provide a shell command to show disk usage human‑readable.", "input": "", "output": "`du -sh * | sort -h`" },
+  { "instruction": "Turn 'resilience' into a motivational acronym.", "input": "", "output": "RISE — Recover, Iterate, Stand, Elevate." },
+  { "instruction": "Suggest a weekend project for learning Arduino.", "input": "", "output": "Build a coffee‑temp alarm that beeps when brew hits perfect °C." },
+  { "instruction": "Explain what 'latency' is to a gamer.", "input": "", "output": "Latency is the ping delay between your trigger pull and the hit register." },
+  { "instruction": "One sentence on importance of backups.", "input": "", "output": "If your data exists only once, it’s already half gone." },
+  { "instruction": "End a cold‑email politely.", "input": "", "output": "Looking forward to your thoughts—thanks for reading!" },
+  { "instruction": "Recommend an open‑source graphic design tool.", "input": "", "output": "Inkscape" }
 ]
