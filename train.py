@@ -9,20 +9,21 @@ from transformers import (
     Trainer
 )
 from datasets import load_dataset
-import torch, bitsandbytes as bnb
+import bitsandbytes as bnb
+import torch
 
 # ── 1.  Model & tokenizer ───────────────────────────────────────────
 MODEL_NAME = "microsoft/phi-2"
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-tokenizer.pad_token = tokenizer.eos_token
+tokenizer.pad_token = tokenizer.eos_token  # needed for padding
 
 model = AutoModelForCausalLM.from_pretrained(
     MODEL_NAME,
     torch_dtype=torch.float32,
-    use_cache=False
+    use_cache=False,
 )
-model.gradient_checkpointing_enable()
+model.gradient_checkpointing_enable()      # saves VRAM
 
 # ── 2.  Dataset ─────────────────────────────────────────────────────
 dataset = load_dataset("json", data_files="galactus_dataset.json")
@@ -45,18 +46,16 @@ tokenised = dataset["train"].map(tokenize, batched=True)
 train_args = TrainingArguments(
     output_dir="./galactus2-model",
     per_device_train_batch_size=1,
-    gradient_accumulation_steps=2,
-    num_train_epochs=3,
-
-    fp16=False,                # avoid AMP issues
-    max_grad_norm=0.0,         # disables grad-clipping scaler
+    gradient_accumulation_steps=2,   # effective batch = 2
+    num_train_epochs=5,              # bump as you add more data
+    fp16=False,
+    max_grad_norm=0.0,               # disables grad-clipping scaler
     logging_steps=10,
 
-    save_strategy="no",        # 🚫 no automatic checkpoints
-    save_total_limit=1,        # keep at most one (if strategy changes)
-
+    save_strategy="no",              # no mid-epoch checkpoints
+    save_total_limit=1,
     overwrite_output_dir=True,
-    report_to="none"
+    report_to="none",
 )
 
 # ── 4.  Low-VRAM optimiser  ─────────────────────────────────────────
@@ -68,9 +67,9 @@ trainer = Trainer(
     args=train_args,
     train_dataset=tokenised,
     data_collator=DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False),
-    optimizers=(optimizer, None)      # custom optimiser, no scheduler
+    optimizers=(optimizer, None)     # custom optimiser, no scheduler
 )
 
-# ── 6.  Train & manual save  ───────────────────────────────────────
+# ── 6.  Train & save  ───────────────────────────────────────────────
 trainer.train()
-trainer.save_model("./galactus2-model")   # final lightweight checkpoint
+trainer.save_model("./galactus2-model")     # final lightweight checkpoint./galactus2-model")   # final lightweight checkpoint
