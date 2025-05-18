@@ -16,10 +16,10 @@ from peft import (
     get_peft_model,
     prepare_model_for_kbit_training
 )
-from bitsandbytes import BitsAndBytesConfig     # <-- NEW
+from bitsandbytes import BitsAndBytesConfig
 
 # ── settings ─────────────────────────────────────────
-BASE_MODEL = "microsoft/phi-2"      # switch to phi-1_5 for faster drafts
+BASE_MODEL = "microsoft/phi-2"       # swap to phi-1_5 for faster drafts
 DATA_PATH  = "galactus_dataset.json"
 OUTPUT_DIR = "galactus2-lora"
 EPOCHS     = 3
@@ -65,7 +65,7 @@ args = TrainingArguments(
     per_device_train_batch_size=2,
     num_train_epochs=EPOCHS,
     learning_rate=LR,
-    save_strategy="no",            # no checkpoints, only final adapter
+    save_strategy="no",            # only final adapter gets saved
     logging_steps=10,
     report_to="none"
 )
@@ -80,4 +80,4 @@ Trainer(
 
 # ── save adapter ────────────────────────────────────
 model.save_pretrained(OUTPUT_DIR)
-print(f"🎉 LoRA adapter saved to {OUTPUT_DIR}/")adapter saved to {OUTPUT_DIR}/")
+print(f"🎉 LoRA adapter saved to {OUTPUT_DIR}/")
