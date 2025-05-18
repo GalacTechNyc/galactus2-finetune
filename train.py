@@ -72,4 +72,4 @@ trainer = Trainer(
 
 # ── 6.  Train & save  ───────────────────────────────────────────────
 trainer.train()
-trainer.save_model("./galactus2-model")     # final lightweight checkpoint./galactus2-model")   # final lightweight checkpoint
+trainer.save_model("./galactus2-model")     # final lightweight checkpoint
