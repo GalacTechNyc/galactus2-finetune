@@ -16,8 +16,7 @@ from peft import (
     get_peft_model,
     prepare_model_for_kbit_training
 )
-from bitsandbytes import BitsAndBytesConfig
-
+from transformers import BitsAndBytesConfig
 # ── settings ─────────────────────────────────────────
 BASE_MODEL = "microsoft/phi-2"       # swap to phi-1_5 for faster drafts
 DATA_PATH  = "galactus_dataset.json"
