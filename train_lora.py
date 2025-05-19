@@ -28,6 +28,7 @@ tok = AutoTokenizer.from_pretrained(BASE_MODEL)
 tok.pad_token = tok.eos_token
 
 # ── base model load ──────────────────────────────────
+# NO quantization, NO bitsandbytes, plain CPU or GPU
 base_model = AutoModelForCausalLM.from_pretrained(BASE_MODEL)
 
 # ── LoRA adapter config ─────────────────────────────
