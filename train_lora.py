@@ -3,6 +3,13 @@
 import os
 os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:64"
 
+# ── settings ─────────────────────────────────────────
+BASE_MODEL = "microsoft/phi-2"       # swap to phi-1_5 for faster drafts
+DATA_PATH  = "galactus_dataset.json"
+OUTPUT_DIR = "galactus2-lora"
+EPOCHS     = 3
+LR         = 1e-4
+
 from transformers import (
     AutoModelForCausalLM,
     AutoTokenizer,
@@ -13,29 +20,15 @@ from transformers import (
 from datasets import load_dataset
 from peft import (
     LoraConfig,
-    get_peft_model,
-    prepare_model_for_kbit_training
+    get_peft_model
 )
-from transformers import BitsAndBytesConfig
-# ── settings ─────────────────────────────────────────
-BASE_MODEL = "microsoft/phi-2"       # swap to phi-1_5 for faster drafts
-DATA_PATH  = "galactus_dataset.json"
-OUTPUT_DIR = "galactus2-lora"
-EPOCHS     = 3
-LR         = 1e-4
 
 # ── tokenizer ───────────────────────────────────────
 tok = AutoTokenizer.from_pretrained(BASE_MODEL)
 tok.pad_token = tok.eos_token
 
-# ── 8-bit base model load (new API) ─────────────────
-quant_cfg  = BitsAndBytesConfig(load_in_8bit=True)
-base_model = AutoModelForCausalLM.from_pretrained(
-    BASE_MODEL,
-    quantization_config=quant_cfg,
-    device_map="auto"
-)
-base_model = prepare_model_for_kbit_training(base_model)
+# ── base model load ──────────────────────────────────
+base_model = AutoModelForCausalLM.from_pretrained(BASE_MODEL)
 
 # ── LoRA adapter config ─────────────────────────────
 lora_cfg = LoraConfig(
